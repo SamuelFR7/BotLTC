@@ -31,11 +31,13 @@ async function compareAndTweet(){
 }
 
 
-async function init(){
+function init(){
 
     try{
         compareAndTweet()
-        // Twitter.tweet()
+        setInterval(() => {
+            compareAndTweet()
+        }, 20 * 60 * 1000)
     }catch{
         console.log('Erro')
     }
