@@ -13,7 +13,8 @@ async function compareAndTweet(){
     const arrayprice = (Object.values(pricecollect))
     let lastexchangeprice = arrayprice[0].value
     var data = new Date()
-    var datasliced = data.toString().slice(16, -41)
+    var data2 = new Date(data.valueOf() - data.getTimezoneOffset() * 60000)
+    var datasliced = data2.toISOString().replace(/\.\d{3}Z$/, '').slice(11, -3)
     var calcvar = newexchangeprice / lastexchangeprice
     var varstring = calcvar.toString().slice(0, 4).replace(".", ",")
     var newpricestring = newexchangeprice.toString()
