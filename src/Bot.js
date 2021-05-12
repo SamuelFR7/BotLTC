@@ -32,15 +32,10 @@ async function compareAndTweet(){
 
 
 function init(){
-
-    try{
-        compareAndTweet()
-        setInterval(() => {
-            compareAndTweet()
-        }, 20 * 60 * 1000)
-    }catch{
-        console.log('Erro')
-    }
+compareAndTweet()
+setInterval(() => {
+    compareAndTweet()
+},  10 * 90 * 1000)
 }
 
 module.exports = {init}
