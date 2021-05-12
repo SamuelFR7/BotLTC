@@ -1,0 +1,27 @@
+{
+  "name": "botltc",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SamuelFR7/BotETH.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SamuelFR7/BotETH/issues"
+  },
+  "homepage": "https://github.com/SamuelFR7/BotETH#readme",
+  "dependencies": {
+    "dotenv": "^9.0.2",
+    "mongoose": "^5.12.8",
+    "node-fetch": "^2.6.1",
+    "twit": "^2.2.11"
+  }
+}
