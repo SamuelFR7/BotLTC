@@ -12,6 +12,8 @@ async function compareAndTweet(){
     let pricecollect = await Price.find({myid: 1231234123})
     const arrayprice = (Object.values(pricecollect))
     let lastexchangeprice = arrayprice[0].value
+    var data = new Date()
+    var datasliced = data.toString().slice(16, -41)
     var calcvar = newexchangeprice / lastexchangeprice
     var varstring = calcvar.toString().slice(0, 4).replace(".", ",")
     var newpricestring = newexchangeprice.toString()
@@ -20,11 +22,11 @@ async function compareAndTweet(){
     console.log('Antigo: ' + lastexchangeprice)
     console.log('Novo: ' + newexchangeprice)
     if(lastexchangeprice == newexchangeprice){
-        texto = `A LiteCoin se manteve 🙃 - está custando atualmente R$${newpricestringreplaced}`
+        texto = `A LiteCoin se manteve 🙃 - R$${newpricestringreplaced} às ${datasliced}`
     } else if(newexchangeprice > lastexchangeprice){
-        texto = `A LiteCoin subiu 🙂 - está custando atualmente R$${newpricestringreplaced}\n\nVariação 📈 - ${varstring}%`
+        texto = `A LiteCoin subiu 🙂 - R$${newpricestringreplaced} às ${datasliced}\n\nVariação 📈 - ${varstring}%`
     } else {
-        texto = `A LiteCoin caiu 😞 - está custando atualmente R$${newpricestringreplaced}\n\nVariação 📉 - ${varstring}%`
+        texto = `A LiteCoin caiu 😞 - R$${newpricestringreplaced} às ${datasliced}\n\nVariação 📉 - ${varstring}%`
     }
     await Twitter.tweet(texto)
     await Price.findByIdAndUpdate('609a8f4da5a88f174c80369b', {value: newexchangeprice})
