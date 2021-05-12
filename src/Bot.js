@@ -5,14 +5,6 @@ const fetch = require('node-fetch')
 
 
 
-
-async function last(){
-    let pricecollect = await Price.find({myid: 1231234123})
-    const arrayprice = (Object.values(pricecollect))
-    var lastprice = arrayprice[0].value
-    console.log(lastprice)
-}
-
 async function compareAndTweet(){
     const exchange = await fetch("https://api.coinstats.app/public/v1/tickers?exchange=binance&pair=LTC-BRL")
     const exchangejson = await exchange.json()
@@ -49,4 +41,4 @@ async function init(){
     }
 }
 
-module.exports = {init, last}
+module.exports = {init}
