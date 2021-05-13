@@ -1,7 +1,7 @@
 const Price = require('../models/prices')
 const Twitter = require('./TwitterAPI')
 const fetch = require('node-fetch')
-
+const cron = require('node-cron')
 
 
 
@@ -28,10 +28,11 @@ async function compareAndTweet(){
 
 
 function init(){
-compareAndTweet()
-setInterval(() => {
-    compareAndTweet()
-},  10 * 90 * 1000)
+    cron.schedule('0,30 * * * *', () => {
+        compareAndTweet()
+    }, {
+        timezone: 'America/Sao_Paulo'
+    })
 }
 
 module.exports = {init}

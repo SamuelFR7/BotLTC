@@ -21,6 +21,7 @@
   "dependencies": {
     "dotenv": "^9.0.2",
     "mongoose": "^5.12.8",
+    "node-cron": "^3.0.0",
     "node-fetch": "^2.6.1",
     "twit": "^2.2.11"
   }
