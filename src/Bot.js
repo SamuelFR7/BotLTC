@@ -10,24 +10,17 @@ async function compareAndTweet(){
     const exchangejson = await exchange.json()
     var newexchangeprice = exchangejson.tickers[0].price
     let pricecollect = await Price.find({myid: 1231234123})
-    const arrayprice = (Object.values(pricecollect))
-    let lastexchangeprice = arrayprice[0].value
+    const lastexchangeprice = Object.values(pricecollect)[0].value
     var data = new Date()
-    var data2 = new Date(data.valueOf() - data.getTimezoneOffset() * 60000)
-    var datasliced = data2.toISOString().replace(/\.\d{3}Z$/, '').slice(11, -3)
-    var calcvar = newexchangeprice / lastexchangeprice
-    var varstring = calcvar.toString().slice(0, 4).replace(".", ",")
-    var newpricestring = newexchangeprice.toString()
-    var newpricestringreplaced = newpricestring.replace(".", ",")
-    console.log(newpricestringreplaced)
-    console.log('Antigo: ' + lastexchangeprice)
-    console.log('Novo: ' + newexchangeprice)
+    var datasliced = new Date(data.valueOf() - data.getTimezoneOffset() * 60000).toISOString().replace(/\.\d{3}Z$/, '').slice(11, -3)
+    var varstring = (newexchangeprice / lastexchangeprice).toString().slice(0, 4).replace(".", ",")
+    var newpricestring = newexchangeprice.toString().replace(".", ",")
     if(lastexchangeprice == newexchangeprice){
-        texto = `A LiteCoin se manteve 🙃 - R$${newpricestringreplaced} às ${datasliced}`
+        texto = `A LiteCoin se manteve 🙃 - R$${newpricestring} às ${datasliced}`
     } else if(newexchangeprice > lastexchangeprice){
-        texto = `A LiteCoin subiu 🙂 - R$${newpricestringreplaced} às ${datasliced}\n\nVariação 📈 - ${varstring}%`
+        texto = `A LiteCoin subiu 🙂 - R$${newpricestring} às ${datasliced}\n\nVariação 📈 - ${varstring}%`
     } else {
-        texto = `A LiteCoin caiu 😞 - R$${newpricestringreplaced} às ${datasliced}\n\nVariação 📉 - ${varstring}%`
+        texto = `A LiteCoin caiu 😞 - R$${newpricestring} às ${datasliced}\n\nVariação 📉 - ${varstring}%`
     }
     await Twitter.tweet(texto)
     await Price.findByIdAndUpdate('609a8f4da5a88f174c80369b', {value: newexchangeprice})
