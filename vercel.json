@@ -1,0 +1,10 @@
+{
+    "version": 2,
+    "name": "bot-ltc",
+    "builds": [
+      { "src": "src/server.ts", "use": "@vercel/node" }
+    ],
+    "routes": [
+      { "src": "/(.*)", "dest": "src/server.ts" }
+    ]
+  }
