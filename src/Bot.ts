@@ -27,6 +27,7 @@ export default class Bot {
   }
 
   init () {
+    this.compareAndTweet()
     cron.schedule('0,30 * * * *', () => {
       this.compareAndTweet()
     }, {
