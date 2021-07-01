@@ -3,7 +3,9 @@
 </h1>
 
 <p align="center">
-  <img  src="https://img.shields.io/static/v1?label=license&message=MIT&color=00E676&labelColor=000000" alt="License">   
+  <a href="/LICENSE">
+        <img alt="GitHub" src="https://img.shields.io/badge/LICENSE-MIT-%2303a9f4?style=for-the-badge">
+  </a> 
 </p>
 
 <br>
