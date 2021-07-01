@@ -26,10 +26,10 @@ export default class Bot {
       return null
     } else if (newPrice > lastPriceExchange) {
       const variationUp = (((newPrice - lastPriceExchange) / lastPriceExchange) * 100).toString().slice(0, 4).replace('.', ',')
-      texto = `A LiteCoin subiu 🙂 - R${newPriceString} às ${dataTime}\n\nVariação 📈 - ${variationUp}%`
+      texto = `A LiteCoin subiu 🙂 - R$${newPriceString} às ${dataTime}\n\nVariação 📈 - ${variationUp}%`
     } else if (lastPriceExchange > newPrice) {
       const variationDown = (((lastPriceExchange - newPrice) / lastPriceExchange) * 100).toString().slice(0, 4).replace('.', ',')
-      texto = `A LiteCoin baixou 😞 - ${newPrice} às ${dataTime}\n\nVariação 📈 - ${variationDown}%`
+      texto = `A LiteCoin baixou 😞 - R$${newPriceString} às ${dataTime}\n\nVariação 📈 - ${variationDown}%`
     }
     await Twitter.tweet(texto)
     await Price.findOneAndUpdate({}, { exchange: newPrice })
