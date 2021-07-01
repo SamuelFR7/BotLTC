@@ -3,9 +3,18 @@ import * as Twitter from './TwitterAPI'
 import axios from 'axios'
 import cron from 'node-cron'
 
+interface IExchange {
+  from: string
+  to: string
+  exchange: string
+  price: number
+}
+interface ITickers {
+  tickers: Array<IExchange>
+}
 export default class Bot {
   async compareAndTweet () {
-    const { data } = await axios.get('https://api.coinstats.app/public/v1/tickers?exchange=binance&pair=LTC-BRL')
+    const { data } = await axios.get<ITickers>('https://api.coinstats.app/public/v1/tickers?exchange=binance&pair=LTC-BRL')
     const newPrice = data.tickers[0].price
     const lastPrice = await Price.findOne({})
     const lastPriceExchange = lastPrice.exchange
