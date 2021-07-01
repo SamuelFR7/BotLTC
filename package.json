@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "ts-node-dev --respawn --transpile-only --notify=false src/server.ts",
     "build": "tsc",
-    "start": "node dist/server.js"
+    "start": "node dist/server.js",
+    "test": "jest"
   },
   "repository": {
     "type": "git",
@@ -29,6 +30,7 @@
   "devDependencies": {
     "@types/axios": "^0.14.0",
     "@types/dotenv": "^8.2.0",
+    "@types/jest": "^26.0.23",
     "@types/node-cron": "^2.0.3",
     "@types/twit": "^2.2.29",
     "@typescript-eslint/eslint-plugin": "^4.28.1",
@@ -38,6 +40,8 @@
     "eslint-plugin-import": "^2.22.1",
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-promise": "^4.2.1",
+    "jest": "^27.0.6",
+    "ts-jest": "^27.0.3",
     "ts-node-dev": "^1.1.7",
     "typescript": "^4.3.4"
   }
