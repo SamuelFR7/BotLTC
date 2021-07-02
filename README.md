@@ -1,5 +1,7 @@
 <h1 align="center">
+    <a href="https://twitter.com/LiteCoinBipolar">
     <img alt="BotLTC" src=".github/cover.svg" />
+    </a>
 </h1>
 
 <p align="center">
