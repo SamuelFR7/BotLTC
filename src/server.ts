@@ -1,11 +1,12 @@
 import Bot from './Bot'
-import mongoose from 'mongoose'
+import { connectDatabase } from './database/databaseConnection'
+import { validate } from './utils/validateEnv'
 
-mongoose.connect(process.env.MONGO_CONNECTION, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true
-})
+(async () => {
+  if (!validate()) return
 
-const bot = new Bot()
-bot.init()
-console.log('Iniciando...')
+  const bot = new Bot()
+
+  await connectDatabase()
+  bot.init()
+})()

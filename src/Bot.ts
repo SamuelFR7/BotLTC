@@ -31,11 +31,12 @@ export default class Bot {
       const variationDown = (((lastPriceExchange - newPrice) / lastPriceExchange) * 100).toString().slice(0, 4).replace('.', ',')
       texto = `A LiteCoin baixou 😞 - R$${newPriceString} às ${dataTime}\n\nVariação 📉 - ${variationDown}%`
     }
-    await Twitter.tweet(texto)
+    Twitter.tweet(texto)
     await Price.findOneAndUpdate({}, { exchange: newPrice })
   }
 
   init () {
+    console.log('Bot has been initialized')
     this.compareAndTweet()
     cron.schedule('0,30 * * * *', () => {
       this.compareAndTweet()
