@@ -1,4 +1,4 @@
-import Price from './models/prices'
+import Price from './database/models/prices'
 import * as Twitter from './TwitterAPI'
 import axios from 'axios'
 import cron from 'node-cron'
