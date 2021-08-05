@@ -23,7 +23,7 @@ export default class Bot {
     const newPriceString = newPrice.toString().replace('.', ',')
     let texto = ''
     if (newPrice === lastPriceExchange) {
-      return null
+      return console.log('O preço se manteve')
     } else if (newPrice > lastPriceExchange) {
       const variationUp = (((newPrice - lastPriceExchange) / lastPriceExchange) * 100).toString().slice(0, 4).replace('.', ',')
       texto = `A LiteCoin subiu 🙂 - R$${newPriceString} às ${dataTime}\n\nVariação 📈 - ${variationUp}%`
