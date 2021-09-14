@@ -5,7 +5,7 @@ import dotenv from 'dotenv'
 describe('Get price exchange', () => {
   beforeAll(async () => {
     dotenv.config()
-    await connect(process.env.MONGO_CONNECTION, { useFindAndModify: false, useUnifiedTopology: true, useNewUrlParser: true })
+    await connect(process.env.MONGO_CONNECTION, { })
   })
 
   afterAll(async () => {
