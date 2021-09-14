@@ -21,9 +21,9 @@
   },
   "homepage": "https://github.com/SamuelFR7/BotETH#readme",
   "dependencies": {
-    "axios": "^0.21.1",
+    "axios": "^0.21.2",
     "dotenv": "^9.0.2",
-    "mongoose": "^5.12.8",
+    "mongoose": "^6.0.5",
     "node-cron": "^3.0.0",
     "twit": "^2.2.11"
   },
