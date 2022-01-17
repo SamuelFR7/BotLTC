@@ -33,7 +33,6 @@
     "@babel/node": "^7.14.7",
     "@babel/preset-env": "^7.14.7",
     "@babel/preset-typescript": "^7.14.5",
-    "@types/axios": "^0.14.0",
     "@types/dotenv": "^8.2.0",
     "@types/jest": "^26.0.23",
     "@types/node-cron": "^2.0.3",
